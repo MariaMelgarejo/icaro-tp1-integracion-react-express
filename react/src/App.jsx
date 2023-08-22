@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { Card } from './components/Card'
+import './App.css'
 
 function App() {
   const [productos, setProductos] = useState([])
@@ -14,7 +16,12 @@ function App() {
 
   return (
     <>
-
+      <h1>Productos</h1>
+      <div className='products-layout'>
+        {productos.map(producto => (
+          <Card key={producto.id} nombre={producto.title} precio={producto.price} imagen={producto.image} descripcion={producto.description} />
+        ))}
+      </div>
     </>
   )
 }
